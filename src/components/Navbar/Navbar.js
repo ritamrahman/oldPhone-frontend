@@ -16,29 +16,19 @@ const Navbar = () => {
           <ul className=" items-center hidden space-x-8 lg:flex">
             <li>
               <NavLink
-                to="/courses"
-                aria-label="Our product"
-                title="Our product"
+                to="/"
+                aria-label="Category"
+                title="category"
                 className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
               >
-                Courses
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/faq"
-                aria-label="Our product"
-                title="Our product"
-                className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                FAQ
+                Category
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/blogs"
-                aria-label="Product pricing"
-                title="Product pricing"
+                aria-label="Blogs"
+                title="Blogs"
                 className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
               >
                 Blogs
@@ -57,7 +47,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-black text-white dark:bg-gradient-to-r from-gs to-ge dark:text-white"
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-baseSecondary text-primaryColor "
                 aria-label="Sign up"
                 title="Sign up"
               >
@@ -132,9 +122,9 @@ const Navbar = () => {
                       <ul className="space-y-4">
                         <li>
                           <NavLink
-                            to="/courses"
-                            aria-label="Our product"
-                            title="Our product"
+                            to="/blogs"
+                            aria-label="Blogs"
+                            title="Blogs"
                             className="font-medium tracking-wide text-darkText transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
                             Courses

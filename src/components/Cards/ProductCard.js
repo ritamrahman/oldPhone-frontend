@@ -2,11 +2,17 @@ import React from "react";
 
 const ProductCard = () => {
   return (
-    <div className="shadow-md">
-      <a href="#" class="relative block ">
-        <button type="button" class="absolute right-4 top-4 rounded-full bg-black p-2 text-white">
-          <span class="sr-only">Wishlist</span>
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <div className="shadow-md bg-primaryColor">
+      <a href="#" className="relative block ">
+        <button type="button" className="absolute right-4 top-4 rounded-full  p-2 text-white bg-primaryColor">
+          <span className="sr-only">Wishlist</span>
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -19,11 +25,11 @@ const ProductCard = () => {
         <img
           alt="Toy"
           src="https://i.bikroy-st.com/samsung-galaxy-a03s-4-64gb-ekdm-phresh-used-for-sale-dhaka/01dc5976-45aa-4e3d-9dc9-64e9f98634ad/620/466/fitted.jpg"
-          class="h-56 w-full object-contain lg:h-72 "
+          className="h-56 w-full object-cover lg:h-72 "
         />
 
-        <div class="p-6">
-          <strong class="inline-block bg-baseSecondary text-primaryColor px-3 py-1 text-xs font-medium rounded-md">
+        <div className="p-6">
+          <strong className="inline-block bg-baseSecondary text-primaryColor px-3 py-1 text-xs font-medium rounded-md">
             Advertised
           </strong>
 
@@ -50,7 +56,7 @@ const ProductCard = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    class="w-5 h-5 text-blueColor"
+                    className="w-5 h-5 text-blueColor"
                   >
                     <path
                       fill-rule="evenodd"
@@ -148,7 +154,7 @@ const ProductCard = () => {
 
           <button
             type="button"
-            class="mt-4 block w-full bg-secondaryColor text-primaryColor p-4 text-sm font-medium rounded-md"
+            className="mt-4 block w-full bg-secondaryColor text-primaryColor p-4 text-sm font-medium rounded-md"
           >
             Book now
           </button>
