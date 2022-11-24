@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const CategoryCard = () => {
+const CategoryCard = ({ index }) => {
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl max-w-sm">
       <figure>
@@ -10,7 +11,9 @@ const CategoryCard = () => {
         <h2 className="card-title">Vivo!</h2>
         <p>Total Products - 229</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View</button>
+          <button className="btn btn-primary">
+            <Link to={`category/${index}`}>View</Link>
+          </button>
         </div>
       </div>
     </div>

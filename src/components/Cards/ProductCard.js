@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({ index }) => {
   return (
     <div className="shadow-md bg-primaryColor">
-      <a href="#" className="relative block ">
+      <Link to={`/product/${index}`} className="relative block ">
         <button type="button" className="absolute right-4 top-4 rounded-full  p-2 text-white bg-primaryColor">
           <span className="sr-only">Wishlist</span>
           <svg
@@ -159,7 +160,7 @@ const ProductCard = () => {
             Book now
           </button>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

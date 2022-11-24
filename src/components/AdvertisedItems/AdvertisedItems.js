@@ -12,8 +12,8 @@ const AdvertisedItems = () => {
         <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {Array(4)
             .fill()
-            .map(() => (
-              <ProductCard />
+            .map((item, index) => (
+              <ProductCard index={index} key={index} />
             ))}
         </div>
       </div>
