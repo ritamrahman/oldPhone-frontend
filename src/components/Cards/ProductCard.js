@@ -1,29 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ProductCard = ({ index }) => {
   return (
     <div className="shadow-md bg-primaryColor">
-      {/* <Link to={`/product/${index}`} className="relative block "> */}
-
-      {/* <button type="button" className="absolute right-4 top-4 rounded-full  p-2 text-white bg-primaryColor">
-        <span className="sr-only">Wishlist</span>
-        <svg
-          className="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-          ></path>
-        </svg>
-      </button> */}
-
       <img
         alt="Toy"
         src="https://i.bikroy-st.com/samsung-galaxy-a03s-4-64gb-ekdm-phresh-used-for-sale-dhaka/01dc5976-45aa-4e3d-9dc9-64e9f98634ad/620/466/fitted.jpg"
