@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const MenuItems = () => {
+  const [condition, setCondition] = useState("Seller");
+
   return (
     <>
+      <li>
+        <div className="dropdown">
+          <label tabIndex={0} className="btn m-1">
+            {condition}
+          </label>
+          <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <Link className="capitalize" onClick={() => setCondition("seller")}>
+                Seller
+              </Link>
+            </li>
+            <li>
+              <Link className="capitalize" onClick={() => setCondition("buyer")}>
+                Buyer
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </li>
       <li>
         <NavLink
           to="/blogs"
