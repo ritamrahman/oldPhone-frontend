@@ -29,14 +29,7 @@ export const routes = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetails />,
       },
-      {
-        path: "/add-product",
-        element: <AddProduct />,
-      },
-      {
-        path: "/my-product",
-        element: <MyProducts />,
-      },
+
       {
         path: "/login",
         element: <Login />,
@@ -58,7 +51,15 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: <MyProducts />,
+      },
+      {
+        path: "/dashboard/add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "/dashboard/my-product",
+        element: <MyProducts />,
       },
 
       {

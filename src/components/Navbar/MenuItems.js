@@ -12,22 +12,6 @@ const MenuItems = () => {
           Blogs
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/add-product"
-          className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-        >
-          Add Product
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/my-product"
-          className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-        >
-          My Product
-        </NavLink>
-      </li>
 
       <li>
         <NavLink
