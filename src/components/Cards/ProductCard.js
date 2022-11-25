@@ -155,7 +155,7 @@ const ProductCard = ({ index }) => {
 
         <label
           htmlFor="addProductModal"
-          className="mt-4 block w-full bg-secondaryColor text-primaryColor p-4 text-sm font-medium rounded-md"
+          className="mt-4 block w-full text-center bg-secondaryColor text-primaryColor p-4 text-sm font-medium rounded-md"
         >
           Book now
         </label>
