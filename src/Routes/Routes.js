@@ -10,7 +10,6 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import MyProducts from "../pages/MyProducts/MyProducts";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import DashboardLayout from "../components/Layout/DashboardLayout";
-import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
   {
