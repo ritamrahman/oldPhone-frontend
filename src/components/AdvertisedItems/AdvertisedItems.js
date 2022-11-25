@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../Cards/ProductCard";
+import AddProductModal from "../Modal/AddProductModal";
 
 const AdvertisedItems = () => {
   return (
@@ -16,6 +17,7 @@ const AdvertisedItems = () => {
               <ProductCard index={index} key={index} />
             ))}
         </div>
+        <AddProductModal />
       </div>
     </section>
   );
