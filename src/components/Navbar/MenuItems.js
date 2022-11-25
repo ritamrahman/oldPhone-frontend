@@ -6,14 +6,6 @@ const MenuItems = () => {
     <>
       <li>
         <NavLink
-          to="#categories"
-          className="font-medium capitalize tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-        >
-          Categories
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
           to="/blogs"
           className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
         >

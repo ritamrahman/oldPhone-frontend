@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const AddProduct = () => {
   const [condition, setCondition] = useState("Select One");
-  const [active, setActive] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();

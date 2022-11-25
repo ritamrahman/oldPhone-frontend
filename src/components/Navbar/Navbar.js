@@ -3,16 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import MenuItems from "./MenuItems";
 
 const Navbar = () => {
-  // const menuItem = [
-  //   { id: 1, slug: "category", name: "category" },
-  //   { id: 2, slug: "blogs", name: "blogs" },
-  //   { id: 1, slug: "add-product", name: "Add Product" },
-  //   { id: 1, slug: "add-products", name: "my Products" },
-  //   { id: 1, slug: "login", name: "Login" },
-  //   { id: 1, slug: "signup", name: "Sign Up" },
-  //   { id: 1, slug: "logout", name: "Log Out" },
-  // ];
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="bg-primaryColor dark:bg-midnight F z-10 w-full">
@@ -26,53 +16,6 @@ const Navbar = () => {
           {/* desktop menu start */}
           <ul className=" items-center hidden space-x-8 lg:flex">
             <MenuItems />
-
-            {/* {menuItem?.map((item) => (
-              <>
-                <li key={item.id}>
-                  <NavLink
-                    to={item.slug}
-                    className="font-medium capitalize tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              </>
-            ))} */}
-
-            {/* </li>
-            <li>
-              <NavLink
-                to="/blogs"
-                aria-label="Blogs"
-                title="Blogs"
-                className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Blogs
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink
-                to="/login"
-                aria-label="About us"
-                title="About us"
-                className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <button
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-baseSecondary text-primaryColor "
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                <Link to="/signup">Sign up</Link>
-              </button>
-            </li>
-
-            <li className="cursor-pointer">LogOut</li> */}
           </ul>
           {/* desktop menu end */}
 
