@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import MenuItems from "./MenuItems";
 
 const Navbar = () => {
+  // const menuItem = [
+  //   { id: 1, slug: "category", name: "category" },
+  //   { id: 2, slug: "blogs", name: "blogs" },
+  //   { id: 1, slug: "add-product", name: "Add Product" },
+  //   { id: 1, slug: "add-products", name: "my Products" },
+  //   { id: 1, slug: "login", name: "Login" },
+  //   { id: 1, slug: "signup", name: "Sign Up" },
+  //   { id: 1, slug: "logout", name: "Log Out" },
+  // ];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="bg-white dark:bg-midnight F z-10 w-full">
+    <div className="bg-primaryColor dark:bg-midnight F z-10 w-full">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           {/* logo start */}
@@ -14,16 +25,22 @@ const Navbar = () => {
           {/* logo end */}
           {/* desktop menu start */}
           <ul className=" items-center hidden space-x-8 lg:flex">
-            <li>
-              <NavLink
-                to="/"
-                aria-label="Category"
-                title="category"
-                className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Category
-              </NavLink>
-            </li>
+            <MenuItems />
+
+            {/* {menuItem?.map((item) => (
+              <>
+                <li key={item.id}>
+                  <NavLink
+                    to={item.slug}
+                    className="font-medium capitalize tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              </>
+            ))} */}
+
+            {/* </li>
             <li>
               <NavLink
                 to="/blogs"
@@ -55,7 +72,7 @@ const Navbar = () => {
               </button>
             </li>
 
-            <li className="cursor-pointer">LogOut</li>
+            <li className="cursor-pointer">LogOut</li> */}
           </ul>
           {/* desktop menu end */}
 
@@ -78,29 +95,16 @@ const Navbar = () => {
             {isMenuOpen && (
               <>
                 <div className="absolute top-0 left-0 w-full z-10">
-                  <div className="p-5 bg-white dark:bg-midnight border rounded shadow-sm">
+                  <div className="p-5 bg-primaryColor dark:bg-midnight border rounded shadow-sm">
                     <div className="flex items-center justify-between mb-4">
                       <div>
+                        {/* logo start */}
                         <NavLink to="/" aria-label="Company" title="Company" className="inline-flex items-center">
-                          <svg
-                            className="w-8 text-deep-purple-accent-400"
-                            viewBox="0 0 24 24"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeMiterlimit="10"
-                            stroke="currentColor"
-                            fill="none"
-                          >
-                            <rect x="3" y="1" width="7" height="12" />
-                            <rect x="3" y="17" width="7" height="6" />
-                            <rect x="14" y="1" width="7" height="6" />
-                            <rect x="14" y="11" width="7" height="12" />
-                          </svg>
-                          <span className="ml-2 text-xl font-bold tracking-wide text-gs dark:text-white uppercase">
-                            Tech-master
+                          <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase text-gs">
+                            Old-Phone
                           </span>
                         </NavLink>
+                        {/* logo end */}
                       </div>
                       <div>
                         <button
@@ -120,56 +124,7 @@ const Navbar = () => {
                     </div>
                     <nav>
                       <ul className="space-y-4">
-                        <li>
-                          <NavLink
-                            to="/blogs"
-                            aria-label="Blogs"
-                            title="Blogs"
-                            className="font-medium tracking-wide text-darkText transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Courses
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="/faq"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-darkText transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            FAQ
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="/blogs"
-                            aria-label="Product pricing"
-                            title="Product pricing"
-                            className="font-medium tracking-wide text-darkText transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Blogs
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="/login"
-                            aria-label="About us"
-                            title="About us"
-                            className="font-medium tracking-wide text-darkText transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            login
-                          </NavLink>
-                        </li>
-                        <li>
-                          <button
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-black dark:bg-gradient-to-r from-gs to-ge dark:text-white hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                          >
-                            <Link to="/signup">Sign Up</Link>
-                          </button>
-                        </li>
-                        <li className="cursor-pointer">LogOut</li>
+                        <MenuItems />
                       </ul>
                     </nav>
                   </div>

@@ -3,7 +3,7 @@ import CategoryCard from "../Cards/CategoryCard";
 
 const Categories = () => {
   return (
-    <section className="bg-white text-white mx-auto">
+    <section id="categories" className="bg-white text-white mx-auto">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="text-3xl font-bold sm:text-4xl text-baseSecondary">Categories</h2>
