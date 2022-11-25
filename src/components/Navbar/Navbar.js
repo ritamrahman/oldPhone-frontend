@@ -8,6 +8,22 @@ const Navbar = () => {
     <div className="bg-primaryColor dark:bg-midnight F z-10 w-full">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
+          <label htmlFor="my-drawer-2" className="lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </label>
           {/* logo start */}
           <NavLink to="/" aria-label="Company" title="Company" className="inline-flex items-center">
             <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase text-gs">Old-Phone</span>

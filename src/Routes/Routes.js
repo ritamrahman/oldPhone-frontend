@@ -9,6 +9,8 @@ import Signup from "../pages/Signup/Signup";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import MyProducts from "../pages/MyProducts/MyProducts";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import DashboardLayout from "../components/Layout/DashboardLayout";
+import Dashboard from "../pages/Admin/Dashboard/Dashboard";
 
 export const routes = createBrowserRouter([
   {
@@ -43,6 +45,22 @@ export const routes = createBrowserRouter([
         path: "/signup",
         element: <Signup />,
       },
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
+    ],
+  },
+  // dashboard
+  {
+    path: "/",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+
       {
         path: "*",
         element: <ErrorPage />,
