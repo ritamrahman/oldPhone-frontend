@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import MenuItems from "./MenuItems";
+import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut, loading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // handleLogOut
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        user?.uid && toast.success("Logout successful");
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="bg-primaryColor dark:bg-midnight F z-10 w-full">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -31,7 +44,7 @@ const Navbar = () => {
           {/* logo end */}
           {/* desktop menu start */}
           <ul className=" items-center hidden space-x-8 lg:flex">
-            <MenuItems />
+            <MenuItems handleLogOut={handleLogOut} user={user} loading={loading} />
           </ul>
           {/* desktop menu end */}
 
@@ -83,7 +96,7 @@ const Navbar = () => {
                     </div>
                     <nav>
                       <ul className="space-y-4">
-                        <MenuItems />
+                        <MenuItems handleLogOut={handleLogOut} user={user} loading={loading} />
                       </ul>
                     </nav>
                   </div>
