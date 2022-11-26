@@ -5,7 +5,6 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import { api } from "../../api/api";
-import { async } from "@firebase/util";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const Signup = () => {
@@ -59,6 +58,12 @@ const Signup = () => {
       },
     };
 
+    const user = await axios.get(`${api}/user/${email}`);
+
+    if (user) {
+      return;
+    }
+
     await axios.post(`${api}/user`, { name, email }, config);
   };
 
@@ -94,6 +99,7 @@ const Signup = () => {
 
             {/* <!-- Form --> */}
             <form onSubmit={handleFormSubmit} className="mt-4">
+              {error}
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Full Name</label>
                 <input
