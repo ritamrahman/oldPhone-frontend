@@ -1,1 +1,1 @@
-export const api = "https://foodspic.vercel.app";
+export const api = "http://localhost:5000";
