@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { AuthContext } from "../../contexts/AuthProvider";
+import toast from "react-hot-toast";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const { signIn, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    const formData = {
-      email,
-      password,
-    };
-    console.log(formData);
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        user?.uid && toast.success("Login successful");
+        user?.uid && navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const { providerLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+
+  // google signIn
+  const handleGoogleSignIn = () => {
+    setLoading(true);
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        user?.uid && toast.success("Login successful");
+        setLoading(false);
+        user?.uid && navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -79,7 +117,7 @@ const Login = () => {
               </button>
 
               {/* social Login start */}
-              <SocialLogin />
+              <SocialLogin handleGoogleSignIn={handleGoogleSignIn} />
               {/* social Login end */}
             </form>
           </div>

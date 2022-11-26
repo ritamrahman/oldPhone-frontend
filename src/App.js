@@ -1,11 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import { routes } from "./Routes/Routes";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="App max-w-[1500px] mx-auto">
       <RouterProvider router={routes}></RouterProvider>
+      <Toaster />
     </div>
   );
 }
