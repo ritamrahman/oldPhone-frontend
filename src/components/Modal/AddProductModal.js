@@ -20,7 +20,7 @@ const AddProductModal = ({ product }) => {
     const formData = {
       userName: user.displayName,
       userEmail: user.email,
-      productName: product.resalePrice,
+      productName: product.title,
       price: product.resalePrice,
       number: mobileNumber,
       location: location,
@@ -36,10 +36,10 @@ const AddProductModal = ({ product }) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         toast.success("successfully");
         //  navigate("/dashboard/my-product");
-        // form.reset();
+        form.reset();
         // setCondition("Select One");
         // setLocation("Select One");
         // setCategory("Select One");
@@ -80,7 +80,7 @@ const AddProductModal = ({ product }) => {
                             name
                           </label>
                           <input
-                            readOnly
+                            disabled
                             id="name"
                             name="name"
                             type="text"
@@ -94,7 +94,7 @@ const AddProductModal = ({ product }) => {
                             email
                           </label>
                           <input
-                            required
+                            disabled
                             id="email"
                             name="email"
                             type="text"
@@ -108,6 +108,7 @@ const AddProductModal = ({ product }) => {
                             Product Name
                           </label>
                           <input
+                            disabled
                             id="productName"
                             name="productName"
                             type="text"
@@ -121,6 +122,7 @@ const AddProductModal = ({ product }) => {
                             price
                           </label>
                           <input
+                            disabled
                             id="price"
                             name="price"
                             type="text"

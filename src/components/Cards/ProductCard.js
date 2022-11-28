@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProductCard = ({ productData }) => {
   const time = productData.createdAt.split("T");
-
+  console.log(productData);
   return (
     <div className="shadow-md bg-primaryColor">
       <img alt="Toy" src={productData?.image} className="h-56 w-full object-cover lg:h-72 " />
