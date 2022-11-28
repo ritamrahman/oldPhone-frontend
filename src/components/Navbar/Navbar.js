@@ -13,6 +13,7 @@ const Navbar = () => {
     logOut()
       .then(() => {
         user?.uid && toast.success("Logout successful");
+        localStorage.removeItem("user");
       })
       .catch((error) => console.error(error));
   };
