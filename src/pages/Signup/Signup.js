@@ -58,11 +58,11 @@ const Signup = () => {
       },
     };
 
-    const user = await axios.get(`${api}/user/${email}`);
+    // const user = await axios.get(`${api}/user/${email}`);
 
-    if (user) {
-      return;
-    }
+    // if (user) {
+    //   return user;
+    // }
 
     await axios.post(`${api}/user`, { name, email }, config);
   };

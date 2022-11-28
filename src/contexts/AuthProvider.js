@@ -47,6 +47,7 @@ const AuthProvider = ({ children }) => {
 
       // if (currentUser === null || currentUser.emailVerified) {
       setUser(currentUser);
+
       // }
       setLoading(false);
     });

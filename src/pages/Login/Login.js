@@ -4,6 +4,8 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
+import { api } from "../../api/api";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -24,6 +26,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         user?.uid && toast.success("Login successful");
+        saveUserInfo(email, password);
         user?.uid && navigate(from, { replace: true });
         setError("");
       })
@@ -47,10 +50,23 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         user?.uid && toast.success("Login successful");
+        saveUserInfo(user.displayName, user.email);
+        localStorage.setItem("user", JSON.stringify(user.email));
         setLoading(false);
         user?.uid && navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
+  };
+
+  // saveUserInfo
+  const saveUserInfo = async (name, email) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios.post(`${api}/user`, { name, email }, config);
   };
 
   return (
