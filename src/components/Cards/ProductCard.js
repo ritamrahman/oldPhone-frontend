@@ -1,9 +1,11 @@
 import React from "react";
 
 const ProductCard = ({ productData }) => {
+  const time = productData.createdAt.split("T");
+
   return (
     <div className="shadow-md bg-primaryColor">
-      <img alt="Toy" src={productData.image} className="h-56 w-full object-cover lg:h-72 " />
+      <img alt="Toy" src={productData?.image} className="h-56 w-full object-cover lg:h-72 " />
 
       <div className="p-6">
         {productData.isAdvertise === true && (
@@ -30,34 +32,36 @@ const ProductCard = ({ productData }) => {
               </svg>
 
               <div className="mt-1.5 sm:ml-3 sm:mt-0 flex items-center">
-                <p className="text-gray-500 mr-1">Ritam Rahman</p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-5 h-5 text-blueColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+                <p className="text-gray-500 mr-1">{productData.SellerName.name}</p>
+                {productData.SellerName.isVerified === true && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-5 h-5 text-blueColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
               </div>
             </div>
 
             {/* title */}
             <div className="flex mt-2 items-center">
-              <dd className="font-medium">Samsang A23S</dd>
+              <dd className="font-medium">{productData.title}</dd>
             </div>
             {/* price */}
             <div className="mt-5 flex-row justify-around lg:flex md:flex xl:flex">
               <p>
-                Original Price: <span className="text-baseSecondary">40000</span>
+                Original Price: <span className="text-baseSecondary">{productData.originalPrice}</span>
               </p>
               <span className="text-baseSecondary hidden lg:block md:block xl:block">|</span>
               <p>
-                Resale Price: <span className="text-baseSecondary">3000</span>
+                Resale Price: <span className="text-baseSecondary">{productData.resalePrice}</span>
               </p>
             </div>
             {/* location */}
@@ -77,7 +81,7 @@ const ProductCard = ({ productData }) => {
                 />
               </svg>
 
-              <dd className="font-normal">123 Wallaby Avenue, Park Road</dd>
+              <dd className="font-normal">{productData.location}</dd>
             </div>
           </dl>
           {/* option start */}
@@ -101,7 +105,7 @@ const ProductCard = ({ productData }) => {
               <div className="mt-1.5 sm:ml-3 sm:mt-0">
                 <p className="text-gray-500">Use</p>
 
-                <p className="font-medium">2 Years</p>
+                <p className="font-medium">{productData.yearsOfUse} Years</p>
               </div>
             </div>
 
@@ -124,7 +128,7 @@ const ProductCard = ({ productData }) => {
               <div className="mt-1.5 sm:ml-3 sm:mt-0">
                 <p className="text-gray-500">Posted On</p>
 
-                <p className="font-medium uppercase">2 NOV 2022</p>
+                <p className="font-medium uppercase">{time[0]}</p>
               </div>
             </div>
           </div>

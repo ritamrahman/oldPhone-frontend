@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <AdvertisedItems />
+      {/* <AdvertisedItems /> */}
       <Categories />
       <CTA />
     </div>
