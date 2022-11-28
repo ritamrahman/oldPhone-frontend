@@ -1,9 +1,27 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../../api/api";
 import ProductCard from "../../components/Cards/ProductCard";
 import AddProductModal from "../../components/Modal/AddProductModal";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Products = () => {
-  return (
+  const { id } = useParams();
+  // query
+  const { data: products, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => {
+      const res = await fetch(`${api}/products/${id}`);
+      const data = await res.json();
+      return data;
+    },
+  });
+  // console.log("Details", products);
+
+  return isLoading ? (
+    "Loading"
+  ) : (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
         <div className="text-center">
@@ -13,11 +31,9 @@ const Products = () => {
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {Array(12)
-            .fill()
-            .map((item, index) => (
-              <ProductCard index={index} key={index} />
-            ))}
+          {products?.product?.map((item) => (
+            <ProductCard productData={item} key={item._id} />
+          ))}
         </div>
         <AddProductModal />
       </div>

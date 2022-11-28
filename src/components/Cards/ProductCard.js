@@ -1,18 +1,16 @@
 import React from "react";
 
-const ProductCard = ({ index }) => {
+const ProductCard = ({ productData }) => {
   return (
     <div className="shadow-md bg-primaryColor">
-      <img
-        alt="Toy"
-        src="https://i.bikroy-st.com/samsung-galaxy-a03s-4-64gb-ekdm-phresh-used-for-sale-dhaka/01dc5976-45aa-4e3d-9dc9-64e9f98634ad/620/466/fitted.jpg"
-        className="h-56 w-full object-cover lg:h-72 "
-      />
+      <img alt="Toy" src={productData.image} className="h-56 w-full object-cover lg:h-72 " />
 
       <div className="p-6">
-        <strong className="inline-block bg-baseSecondary text-primaryColor px-3 py-1 text-xs font-medium rounded-md">
-          Advertised
-        </strong>
+        {productData.isAdvertise === true && (
+          <strong className="inline-block bg-baseSecondary text-primaryColor px-3 py-1 text-xs font-medium rounded-md">
+            Advertised
+          </strong>
+        )}
 
         <div className="mt-2">
           <dl>
