@@ -1,6 +1,25 @@
-import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from "react";
+import { api } from "../../api/api";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const MyOrders = () => {
+  const { user, loading } = useContext(AuthContext);
+  // query
+  const { data: orders, isLoading } = useQuery({
+    queryKey: ["orders"],
+    queryFn: async () => {
+      if (loading) {
+        return "loading...";
+      }
+      const res = await fetch(`${api}/users/${user?.email}`);
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  // console.log(orders.products.title);
+
   // handelDelete
   const handelDelete = (id) => {
     console.log("first", id);
@@ -27,14 +46,14 @@ const MyOrders = () => {
               </tr>
             </thead>
             <tbody>
-              {new Array(12).fill().map(() => (
+              {orders.products.map((item) => (
                 <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
                   <>
-                    <td className="p-3">q</td>
-                    <td className="p-3">q</td>
+                    <td className="p-3">{item?.title}</td>
+                    <td className="p-3">{item?.price}</td>
                     <td className="p-3">23</td>
                     <td>
-                      <button className="mx-2" onClick={() => handelDelete()}>
+                      <button className="btn xs mx-2" onClick={() => handelDelete()}>
                         Pay Now
                       </button>
                     </td>
