@@ -5,6 +5,7 @@ import ProductCard from "../Cards/ProductCard";
 import AddProductModal from "../Modal/AddProductModal";
 
 const AdvertisedItems = ({ productData }) => {
+  console.log("pd", productData);
   return (
     <section className="bg-white text-white">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">

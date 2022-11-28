@@ -17,6 +17,7 @@ const Home = () => {
       return data;
     },
   });
+  console.log(products);
 
   return (
     <div>

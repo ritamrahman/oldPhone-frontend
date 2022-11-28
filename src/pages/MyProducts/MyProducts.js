@@ -23,7 +23,7 @@ const MyProducts = () => {
       return data;
     },
   });
-  console.log("products", products.product);
+  // console.log("products", products.product);
 
   return (
     <>

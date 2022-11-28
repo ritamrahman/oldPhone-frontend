@@ -33,10 +33,12 @@ const Products = () => {
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {products?.product?.map((item) => (
-            <ProductCard productData={item} key={item._id} />
+            <>
+              <ProductCard productData={item} key={item._id} />
+              <AddProductModal product={item} />
+            </>
           ))}
         </div>
-        <AddProductModal />
       </div>
     </section>
   );
