@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryCard from "../Cards/CategoryCard";
 import { api } from "../../api/api";
+import Loading from "../Loading/Loading";
 import { useQuery } from "@tanstack/react-query";
 
 const Categories = () => {
@@ -22,7 +23,7 @@ const Categories = () => {
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {isLoading ? "Loading" : categories?.category?.map((ctg) => <CategoryCard key={ctg._id} category={ctg} />)}
+          {isLoading ? <Loading /> : categories?.category?.map((ctg) => <CategoryCard key={ctg._id} category={ctg} />)}
         </div>
       </div>
     </section>

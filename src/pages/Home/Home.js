@@ -5,6 +5,7 @@ import AdvertisedItems from "../../components/AdvertisedItems/AdvertisedItems";
 import Categories from "../../components/Categories/Categories";
 import CTA from "../../components/CTA/CTA";
 import Hero from "../../components/Hero/Hero";
+import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
   // query
@@ -16,12 +17,11 @@ const Home = () => {
       return data;
     },
   });
-  console.log("Length", products.length);
 
   return (
     <div>
       {isLoading ? (
-        "Loading..."
+        <Loading />
       ) : (
         <>
           <Hero />

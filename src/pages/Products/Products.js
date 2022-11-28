@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import ProductCard from "../../components/Cards/ProductCard";
+import Loading from "../../components/Loading/Loading";
 import AddProductModal from "../../components/Modal/AddProductModal";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -20,7 +21,7 @@ const Products = () => {
   // console.log("Details", products);
 
   return isLoading ? (
-    "Loading"
+    <Loading />
   ) : (
     <section className="bg-white dark:bg-gray-900">
       <div className="container px-6 py-10 mx-auto">
