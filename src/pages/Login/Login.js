@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
 import { api } from "../../api/api";
+import Error from "../../components/Error/Error";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -81,6 +82,7 @@ const Login = () => {
             />
           </div>
           <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+            {error && <Error error={error} />}
             <form onSubmit={handleSubmit}>
               {/* <!-- Email input --> */}
               <div className="mb-6">
