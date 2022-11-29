@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const MenuItems = ({ handleLogOut, user, loading, CurrUser }) => {
-  const [condition, setCondition] = useState(CurrUser?.user?.role);
-  console.log("Cuser", CurrUser.user.role);
+  const [condition, setCondition] = useState("Buyer");
+  // console.log("Cuser", CurrUser.user.role);
+
   return (
     <>
       {!loading && user?.uid && (
@@ -46,6 +47,7 @@ const MenuItems = ({ handleLogOut, user, loading, CurrUser }) => {
               My Orders
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="/dashboard"

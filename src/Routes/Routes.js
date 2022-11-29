@@ -13,6 +13,7 @@ import DashboardLayout from "../components/Layout/DashboardLayout";
 import AllSeller from "../pages/AllSeller/AllSeller";
 import MyOrders from "../pages/MyOrders/MyOrders";
 import Blogs from "../pages/Blogs/Blogs";
+import PrivateRoutes from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/my-orders",
-        element: <MyOrders />,
+        element: (
+          <PrivateRoutes>
+            <MyOrders />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/blogs",
@@ -60,15 +65,27 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <MyProducts />,
+        element: (
+          <PrivateRoutes>
+            <MyProducts />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/add-product",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoutes>
+            <AddProduct />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/my-product",
-        element: <MyProducts />,
+        element: (
+          <PrivateRoutes>
+            <MyProducts />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard/all-sellers",

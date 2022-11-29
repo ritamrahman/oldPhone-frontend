@@ -4,6 +4,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { api } from "../../api/api";
 import Loading from "../../components/Loading/Loading";
+import toast from "react-hot-toast";
+import { async } from "@firebase/util";
 
 const MyProducts = () => {
   // const { user, loading } = useContext(AuthContext);
@@ -27,6 +29,7 @@ const MyProducts = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState();
+  const [refatch, setRefatch] = useState(false);
 
   console.log("products", products);
 
@@ -39,9 +42,46 @@ const MyProducts = () => {
       .then((data) => {
         setProducts(data);
         setIsLoading(false);
+        setRefatch(false);
       })
       .catch((er) => console.error(er));
-  }, [userEmail]);
+  }, [userEmail, refatch]);
+
+  // advertiseHandler
+  const advertiseHandler = async (adId) => {
+    // setIsLoading(true);
+    const formData = {
+      isAdvertise: true,
+    };
+    // save  information to the database
+    fetch(`${api}/product/${adId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success("your product show on home page now");
+        setRefatch(true);
+        // setIsLoading(false);
+
+        // navigate("/dashboard/my-product");
+        // form.reset();
+        // setCondition("Select One");
+        // setLocation("Select One");
+        // setCategory("Select One");
+      });
+    // fetch(`${api}/myproducts/${userEmail}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setProducts(data);
+    //
+    //   })
+    //   .catch((er) => console.error(er));
+  };
 
   return (
     <>
@@ -49,7 +89,7 @@ const MyProducts = () => {
         <Loading />
       ) : (
         <>
-          {products?.product.length === 0 ? (
+          {products?.product?.length === 0 ? (
             "no products fount"
           ) : (
             <>
@@ -93,7 +133,10 @@ const MyProducts = () => {
                                   {product.isAdvertise === true ? (
                                     <button className="btn btn-xs bg-grayColor text-blackColor">advertised</button>
                                   ) : (
-                                    <button className="btn btn-xs uppercase bg-greenColor text-blackColor">
+                                    <button
+                                      className="btn btn-xs uppercase bg-greenColor text-blackColor"
+                                      onClick={() => advertiseHandler(product?._id)}
+                                    >
                                       advertise
                                     </button>
                                   )}
@@ -101,22 +144,7 @@ const MyProducts = () => {
                               </td>
                               <td className="">
                                 {/* edit */}
-                                <button className="btn btn-circle btn-outline btn-xs bg-baseSecondary text-primaryColor">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    className="h-4 w-4"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="1.5"
-                                    stroke="currentColor"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                                    />
-                                  </svg>
-                                </button>
+
                                 {/* delete */}
                                 <button className="btn btn-circle btn-outline btn-xs bg-baseSecondary text-primaryColor">
                                   <svg
