@@ -77,7 +77,7 @@ const Signup = () => {
       },
     };
 
-    await axios.post(`${api}/user`, { name, email }, config);
+    await axios.post(`${api}/user/${email}`, { name, email }, config);
   };
 
   return (

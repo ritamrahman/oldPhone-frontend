@@ -6,6 +6,7 @@ import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 const AddProduct = () => {
   const [condition, setCondition] = useState("Select One");
@@ -15,6 +16,7 @@ const AddProduct = () => {
   const navigate = useNavigate();
 
   const [isProductAdded, setIsProductAdded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { user, loading } = useContext(AuthContext);
 
@@ -33,7 +35,7 @@ const AddProduct = () => {
   ];
 
   // query
-  const { data: categories, isLoading } = useQuery({
+  const { data: categories } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
       const res = await fetch(`${api}/categories`);
@@ -69,6 +71,7 @@ const AddProduct = () => {
 
     // const result = await axios.post(`${api}/product/${user.email}`, { formData }, config);
     // save  information to the database
+    setIsLoading(true);
     fetch(`${api}/product/${user.email}`, {
       method: "POST",
       headers: {
@@ -80,6 +83,7 @@ const AddProduct = () => {
       .then((result) => {
         console.log(result);
         toast.success("product added successfully");
+        setIsLoading(false);
         navigate("/dashboard/my-product");
         // form.reset();
         // setCondition("Select One");
@@ -89,7 +93,7 @@ const AddProduct = () => {
   };
 
   if (isLoading) {
-    return "loading...";
+    return <Loading />;
   }
   return (
     <>

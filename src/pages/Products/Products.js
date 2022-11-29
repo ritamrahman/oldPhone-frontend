@@ -11,6 +11,8 @@ const Products = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [productData, setProductData] = useState(null);
+
+  window.scrollTo(0, 0);
   // query
   const { data: products } = useQuery({
     queryKey: ["products"],
