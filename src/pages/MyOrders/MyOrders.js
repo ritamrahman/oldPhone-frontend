@@ -53,13 +53,11 @@ const MyOrders = () => {
                 <colgroup>
                   <col />
                   <col />
-                  <col />
                   <col className="w-24" />
                 </colgroup>
                 <thead className="dark:bg-gray-700">
                   <tr className="text-left text-secondary bg-secondaryBG">
                     <th className="p-3">MyOrders</th>
-                    <th className="p-3">title</th>
                     <th className="p-3">price</th>
                     <th className="p-3">Action</th>
                   </tr>
@@ -69,8 +67,7 @@ const MyOrders = () => {
                     <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
                       <>
                         <td className="p-3">{item?.title}</td>
-                        <td className="p-3">{item?.price}</td>
-                        <td className="p-3">23</td>
+                        <td className="p-3">{item?.resalePrice}</td>
                         <td>
                           <button className="btn xs mx-2" onClick={() => handelDelete()}>
                             Pay Now
