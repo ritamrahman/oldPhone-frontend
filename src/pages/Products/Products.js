@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../api/api";
 import ProductCard from "../../components/Cards/ProductCard";
@@ -9,12 +9,15 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const Products = () => {
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
   // query
-  const { data: products, isLoading } = useQuery({
+  const { data: products } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
+      setIsLoading(true);
       const res = await fetch(`${api}/products/${id}`);
       const data = await res.json();
+      setIsLoading(false);
       return data;
     },
   });
