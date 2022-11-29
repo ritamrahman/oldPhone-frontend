@@ -1,44 +1,13 @@
 import { async } from "@firebase/util";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import { api } from "../../api/api";
 
 const MenuItems = ({ handleLogOut, user, loading, CurrUser }) => {
   const [condition, setCondition] = useState("Buyer");
-  // console.log("Cuser", CurrUser.user.role);
-
-  useEffect(() => {
-    // localStorage.setItem("isAdmin", JSON.stringify(condition));
-
-    const myFun = async () => {
-      const currUser = await axios.get(`user/${user?.email}`);
-      setCondition(currUser?.user.role);
-    };
-    myFun();
-  }, []);
-
-  // useEffect(()=>{
-
-  //      const formData = {
-  //        isAdvertise: true,
-  //      };
-  //      // save  information to the database
-  //      fetch(`${api}/user/:id/${adId}`, {
-  //        method: "PUT",
-  //        headers: {
-  //          "content-type": "application/json",
-  //        },
-  //        body: JSON.stringify(formData),
-  //      })
-  //        .then((res) => res.json())
-  //        .then((result) => {
-  //          console.log(result);
-  //          toast.success("your product show on home page now");
-  //          setRefatch(true);
-  //        });
-
-  // },[])
+  // const { user } = useContext(AuthContext);
 
   return (
     <>
