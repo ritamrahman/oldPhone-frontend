@@ -18,6 +18,7 @@ const Navbar = () => {
       .then(() => {
         user?.uid && toast.success("Logout successful");
         localStorage.removeItem("user");
+        localStorage.removeItem("isAdmin");
       })
       .catch((error) => console.error(error));
   };

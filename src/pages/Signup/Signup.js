@@ -31,6 +31,7 @@ const Signup = () => {
         handleUpdateUserProfile(name);
         saveUserInfo(name, email);
         toast.success("Registration successfully");
+        localStorage.setItem("user", JSON.stringify(user.email));
 
         user?.uid && navigate(from, { replace: true });
       })
@@ -51,23 +52,6 @@ const Signup = () => {
       .catch((error) => console.error(error));
   };
 
-  // saveUserInfo
-  const saveUserInfo = async (name, email) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    // const user = await axios.get(`${api}/user/${email}`);
-
-    // if (user) {
-    //   return user;
-    // }
-
-    await axios.post(`${api}/user`, { name, email }, config);
-  };
-
   const { providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
 
@@ -78,10 +62,22 @@ const Signup = () => {
         const user = result.user;
         console.log("Guser", user);
         saveUserInfo(user.displayName, user.email);
+        localStorage.setItem("user", JSON.stringify(user.email));
         user?.uid && toast.success("Login successful");
         user?.uid && navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
+  };
+
+  // saveUserInfo
+  const saveUserInfo = async (name, email) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await axios.post(`${api}/user`, { name, email }, config);
   };
 
   return (

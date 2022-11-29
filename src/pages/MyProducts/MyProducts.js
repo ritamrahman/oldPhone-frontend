@@ -8,24 +8,7 @@ import toast from "react-hot-toast";
 import { async } from "@firebase/util";
 
 const MyProducts = () => {
-  // const { user, loading } = useContext(AuthContext);
   const userEmail = JSON.parse(localStorage.getItem("user"));
-  // const url = `${api}/myproducts/${userEmail}`;
-  // console.log(url);
-
-  // const { data: products = [], refetch } = useQuery({
-  //   queryKey: ["products"],
-  //   queryFn: async () => {
-  //     if (loading || !user) {
-  //       return "loading...";
-  //     }
-  //     const res = await fetch(url);
-  //     const data = await res.json();
-  //     console.log("data", data);
-  //     return data;
-  //   },
-  // });
-  // console.log("products", products.product);
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState();
@@ -49,7 +32,6 @@ const MyProducts = () => {
 
   // advertiseHandler
   const advertiseHandler = async (adId) => {
-    // setIsLoading(true);
     const formData = {
       isAdvertise: true,
     };
@@ -66,21 +48,7 @@ const MyProducts = () => {
         console.log(result);
         toast.success("your product show on home page now");
         setRefatch(true);
-        // setIsLoading(false);
-
-        // navigate("/dashboard/my-product");
-        // form.reset();
-        // setCondition("Select One");
-        // setLocation("Select One");
-        // setCategory("Select One");
       });
-    // fetch(`${api}/myproducts/${userEmail}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setProducts(data);
-    //
-    //   })
-    //   .catch((er) => console.error(er));
   };
 
   return (
