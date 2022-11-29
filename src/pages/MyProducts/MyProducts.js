@@ -91,7 +91,7 @@ const MyProducts = () => {
                                 )}
                                 <button className="mx-2 capitalize">
                                   {product.isAdvertise === true ? (
-                                    <button className="btn btn-xs bg-grayColor">advertised</button>
+                                    <button className="btn btn-xs bg-grayColor text-blackColor">advertised</button>
                                   ) : (
                                     <button className="btn btn-xs uppercase bg-greenColor text-blackColor">
                                       advertise
