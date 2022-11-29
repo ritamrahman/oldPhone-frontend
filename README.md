@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Old-Phone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Used Phone Resale Site
 
-## Available Scripts
+Site Url : 
 
-In the project directory, you can run:
+### Features and Functionality
+#1 Here You can add your product.
 
-### `npm start`
+#2 You can find others posted product
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#3 Role base access control
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#4 admin CRUD Fearure
 
-### `npm test`
+5# Modern UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5# Very Responsive Design
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use the package manager [npm](npmjs.com/) to install All packages.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Description
+This is a Review Base Site. Heres you can find Best Cloud Kitchen In deepened On User Review
 
-### `npm run eject`
+### Framework
+1# React
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### NPM Packages
+1# react-hot-toast
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2# react-router-dom
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3# react-helmet
 
-## Learn More
+4# react-photo-view
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### CSS Framework
+1# TailwindCss
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### TailwindCss Component Library 
+1# DaisyUi
 
-### Code Splitting
+2# Mambaui
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Database for Authentication
+#1 Firebase
 
-### Analyzing the Bundle Size
+### Hosted
+#1 Firebase (Frontend)
+#2 Vercel (BackEnd)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Here we show through Rechart How many questions a specific topic has.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4# Blog Page
+Here have some important React Questions that answered
