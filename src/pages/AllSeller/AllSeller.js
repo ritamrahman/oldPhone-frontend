@@ -1,52 +1,77 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
+import { api } from "../../api/api";
+import { AuthContext } from "../../contexts/AuthProvider";
+import Loading from "../../components/Loading/Loading";
 
 const AllSeller = () => {
+  const { user, loading } = useContext(AuthContext);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [bookings, setBookings] = useState();
+
+  // call review api
+  useEffect(() => {
+    setIsLoading(true);
+
+    fetch(`${api}/sellers`)
+      .then((res) => res.json())
+      .then((data) => {
+        setBookings(data);
+        setIsLoading(false);
+      })
+      .catch((er) => console.error(er));
+  }, [user.email]);
+
   // handelDelete
   const handelDelete = (id) => {
     console.log("first", id);
   };
-
+  console.log("bookings", bookings);
   return (
     <>
-      <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-        <h2 className="mb-4 text-2xl font-semibold leading-tight">All Seller</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-xs">
-            <colgroup>
-              <col />
-              <col />
-              <col />
-              <col className="w-24" />
-            </colgroup>
-            <thead className="dark:bg-gray-700">
-              <tr className="text-left text-secondary bg-secondaryBG">
-                <th className="p-3">name</th>
-                <th className="p-3">email</th>
-                <th className="p-3">Status</th>
-                <th className="p-3">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {new Array(12).fill().map(() => (
-                <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
-                  <>
-                    <td className="p-3">q</td>
-                    <td className="p-3">q</td>
-                    <td>
-                      <button className="mx-2">Verify</button>
-                    </td>
-                    <td>
-                      <button className="mx-2" onClick={() => handelDelete()}>
-                        Delete
-                      </button>
-                    </td>
-                  </>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          {bookings?.allUsers?.length === 0 ? (
+            "No bookings Found"
+          ) : (
+            <>
+              <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
+                <h2 className="mb-4 text-2xl font-semibold leading-tight">My bookings</h2>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-xs">
+                    <colgroup>
+                      <col />
+                      <col />
+                      <col className="w-24" />
+                    </colgroup>
+                    <thead className="dark:bg-gray-700">
+                      <tr className="text-left text-secondary bg-secondaryBG">
+                        <th className="p-3">name</th>
+                        <th className="p-3">email</th>
+                        <th className="p-3">isVerified</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {bookings?.allUsers?.map((item) => (
+                        <tr className="border-b border-opacity-20 ">
+                          <>
+                            <td className="p-3">{item?.name}</td>
+                            <td className="p-3">{item?.email}</td>
+                            <td>{item?.isVerified === "true" ? "Varified" : "Not-Varified"}</td>
+                          </>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
     </>
   );
 };

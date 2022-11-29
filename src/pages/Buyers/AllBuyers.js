@@ -4,7 +4,7 @@ import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Loading from "../../components/Loading/Loading";
 
-const Buyers = () => {
+const AllBuyers = () => {
   const { user, loading } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +39,7 @@ const Buyers = () => {
           ) : (
             <>
               <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-                <h2 className="mb-4 text-2xl font-semibold leading-tight">My Buyers</h2>
+                <h2 className="mb-4 text-2xl font-semibold leading-tight">All buyers</h2>
                 <div className="overflow-x-auto">
                   <table className="min-w-full text-xs">
                     <colgroup>
@@ -76,4 +76,4 @@ const Buyers = () => {
   );
 };
 
-export default Buyers;
+export default AllBuyers;

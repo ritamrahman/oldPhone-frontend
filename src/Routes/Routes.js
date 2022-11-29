@@ -16,6 +16,7 @@ import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoutes from "./PrivateRoute";
 import AllBookings from "../pages/Buyers/Buyers";
 import Buyers from "../pages/Buyers/Buyers";
+import AllBuyers from "../pages/Buyers/AllBuyers";
 
 export const routes = createBrowserRouter([
   {
@@ -90,6 +91,14 @@ export const routes = createBrowserRouter([
         ),
       },
       {
+        path: "/dashboard/sellers",
+        element: (
+          <PrivateRoutes>
+            <AllSeller />
+          </PrivateRoutes>
+        ),
+      },
+      {
         path: "/dashboard/my-product",
         element: (
           <PrivateRoutes>
@@ -100,6 +109,10 @@ export const routes = createBrowserRouter([
       {
         path: "/dashboard/all-sellers",
         element: <AllSeller />,
+      },
+      {
+        path: "/dashboard/allbuyers",
+        element: <AllBuyers />,
       },
 
       {
