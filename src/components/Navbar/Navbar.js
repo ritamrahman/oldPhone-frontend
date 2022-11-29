@@ -1,13 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import MenuItems from "./MenuItems";
 import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "../../api/api";
+import axios from "axios";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [CurrUser, setCurrUser] = useState();
   // handleLogOut
   const handleLogOut = () => {
     logOut()
@@ -17,6 +21,22 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error));
   };
+
+  // query
+  // call review api
+  useEffect(() => {
+    setIsLoading(true);
+
+    fetch(`${api}/user/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrUser(data);
+        setIsLoading(false);
+      })
+      .catch((er) => console.error(er));
+  }, [user?.email]);
+
+  // console.log(CurrUser);
 
   return (
     <div className="bg-primaryColor dark:bg-midnight F z-10 w-full">
@@ -45,7 +65,7 @@ const Navbar = () => {
           {/* logo end */}
           {/* desktop menu start */}
           <ul className=" items-center hidden space-x-8 lg:flex">
-            <MenuItems handleLogOut={handleLogOut} user={user} loading={loading} />
+            <MenuItems handleLogOut={handleLogOut} user={user} loading={loading} CurrUser={CurrUser} />
           </ul>
           {/* desktop menu end */}
 

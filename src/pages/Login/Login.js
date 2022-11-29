@@ -7,6 +7,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
 import { api } from "../../api/api";
 import Error from "../../components/Error/Error";
+import { async } from "@firebase/util";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -51,7 +52,9 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         user?.uid && toast.success("Login successful");
+
         saveUserInfo(user.displayName, user.email);
+
         localStorage.setItem("user", JSON.stringify(user.email));
         setLoading(false);
         user?.uid && navigate(from, { replace: true });

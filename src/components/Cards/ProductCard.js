@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ productData }) => {
-  const time = productData.createdAt.split("T");
-  console.log(productData);
+const ProductCard = ({ productData, setProductData }) => {
+  const time = productData?.createdAt.split("T");
+  console.log("productData", productData);
   return (
     <div className="shadow-md bg-primaryColor">
       <img alt="Toy" src={productData?.image} className="h-56 w-full object-cover lg:h-72 " />
 
       <div className="p-6">
-        {productData.isAdvertise === true && (
+        {productData?.isAdvertise === true && (
           <strong className="inline-block bg-baseSecondary text-primaryColor px-3 py-1 text-xs font-medium rounded-md">
             Advertised
           </strong>
@@ -33,8 +33,8 @@ const ProductCard = ({ productData }) => {
               </svg>
 
               <div className="mt-1.5 sm:ml-3 sm:mt-0 flex items-center">
-                <p className="text-gray-500 mr-1">{productData.SellerName.name}</p>
-                {productData.SellerName.isVerified === true && (
+                <p className="text-gray-500 mr-1">{productData?.SellerName?.name}</p>
+                {productData?.SellerName?.isVerified === true && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -53,16 +53,16 @@ const ProductCard = ({ productData }) => {
 
             {/* title */}
             <div className="flex mt-2 items-center">
-              <dd className="font-medium">{productData.title}</dd>
+              <dd className="font-medium">{productData?.title}</dd>
             </div>
             {/* price */}
             <div className="mt-5 flex-row justify-around lg:flex md:flex xl:flex">
               <p>
-                Original Price: <span className="text-baseSecondary">{productData.originalPrice}</span>
+                Original Price: <span className="text-baseSecondary">{productData?.originalPrice}</span>
               </p>
               <span className="text-baseSecondary hidden lg:block md:block xl:block">|</span>
               <p>
-                Resale Price: <span className="text-baseSecondary">{productData.resalePrice}</span>
+                Resale Price: <span className="text-baseSecondary">{productData?.resalePrice}</span>
               </p>
             </div>
             {/* location */}
@@ -82,7 +82,7 @@ const ProductCard = ({ productData }) => {
                 />
               </svg>
 
-              <dd className="font-normal">{productData.location}</dd>
+              <dd className="font-normal">{productData?.location}</dd>
             </div>
           </dl>
           {/* option start */}
@@ -106,7 +106,7 @@ const ProductCard = ({ productData }) => {
               <div className="mt-1.5 sm:ml-3 sm:mt-0">
                 <p className="text-gray-500">Use</p>
 
-                <p className="font-medium">{productData.yearsOfUse} Years</p>
+                <p className="font-medium">{productData?.yearsOfUse} Years</p>
               </div>
             </div>
 
@@ -138,6 +138,7 @@ const ProductCard = ({ productData }) => {
 
         <div className="w-full flex justify-between items-center mt-4 ">
           <label
+            onClick={() => setProductData(productData)}
             htmlFor="addProductModal"
             className="block w-full text-center bg-secondaryColor text-primaryColor p-4 text-sm font-medium rounded-md"
           >

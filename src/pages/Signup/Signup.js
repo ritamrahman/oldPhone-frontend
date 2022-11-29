@@ -6,6 +6,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import toast from "react-hot-toast";
 import { api } from "../../api/api";
 import { GoogleAuthProvider } from "firebase/auth";
+import Error from "../../components/Error/Error";
 
 const Signup = () => {
   const [error, setError] = useState("");
@@ -99,7 +100,7 @@ const Signup = () => {
 
             {/* <!-- Form --> */}
             <form onSubmit={handleFormSubmit} className="mt-4">
-              {error}
+              {error && <Error error={error} />}
               <div className="mb-3">
                 <label className="mb-2 block text-xs font-semibold">Full Name</label>
                 <input

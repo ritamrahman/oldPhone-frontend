@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const MenuItems = ({ handleLogOut, user, loading }) => {
-  const [condition, setCondition] = useState("Seller");
-  console.log("Cuser", user);
+const MenuItems = ({ handleLogOut, user, loading, CurrUser }) => {
+  const [condition, setCondition] = useState(CurrUser?.user?.role);
+  console.log("Cuser", CurrUser.user.role);
   return (
     <>
       {!loading && user?.uid && (
@@ -15,7 +15,7 @@ const MenuItems = ({ handleLogOut, user, loading }) => {
             <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <Link className="capitalize" onClick={() => setCondition("seller")}>
-                  Seller
+                  seller
                 </Link>
               </li>
               <li>
