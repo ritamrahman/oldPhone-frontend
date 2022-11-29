@@ -87,15 +87,19 @@ const MenuItems = ({ handleLogOut, user, loading, CurrUser }) => {
               My Orders
             </NavLink>
           </li>
-
-          <li>
-            <NavLink
-              to="/dashboard"
-              className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
-            >
-              Dashboard
-            </NavLink>
-          </li>
+          {CurrUser?.user?.role === "seller" ||
+            ("admin" && (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              </>
+            ))}
 
           <li className="cursor-pointer" onClick={handleLogOut}>
             LogOut
