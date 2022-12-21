@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { AuthContext } from "../../contexts/AuthProvider";
-import Loading from "../../components/Loading/Loading";
+// import Loading from "../../components/Loading/Loading";
 
 const AllSeller = () => {
   const { user, loading } = useContext(AuthContext);
